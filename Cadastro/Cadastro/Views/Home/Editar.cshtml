@@ -1,0 +1,65 @@
+﻿@model Cadastro.Models.ClsUsuario
+@{
+    ViewBag.Title = "Usuario";
+}
+<div class="container">
+    <div class="page-header">Editar dados do usuário</div>
+    @if (TempData["Usuario"] != null)
+    {
+        <div class="alert alert-warning" role="alert">@Html.Raw(TempData["Usuario"])</div>
+    }
+
+    @using (Html.BeginForm("Editar", "Home", FormMethod.Post, new { @autocomplete = "off", id = "FormUsuario" }))
+    {
+        @Html.TextBox("idUsuario", Model.IdUsuario, new { @type="hidden"})
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    @Html.TextBox("nome", Model.Nome, new { @class = "form-control", @maxlength = "200", @placeholder = "Nome", @id = "nome", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Nome)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    @Html.TextBox("email", Model.Email, new { @class = "form-control", @maxlength = "240", @placeholder = "E-mail", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <dov class="col-lg-6">
+                <div class="form-group">
+                    @Html.TextBox("dtNascimento", @Convert.ToDateTime(Model.DtNascimento).ToString("dd/MM/yyyy"), new { @class = "form-control", @maxlength = "10", @placeholder = "Data Nascimento", required = "required" })
+                    @Html.ValidationMessageFor(model => model.DtNascimento)
+                </div>
+            </dov>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    @Html.TextBox("login", Model.Login, new { @class = "form-control", @maxlength = "50", @placeholder = "Login", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Login)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    @Html.TextBox("senha", Model.Senha, new { @class = "form-control", @maxlength = "50", @placeholder = "Senha", @type = "password", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Senha)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Cadastra</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

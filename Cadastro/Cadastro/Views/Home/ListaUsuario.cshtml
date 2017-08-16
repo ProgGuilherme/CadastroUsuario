@@ -1,0 +1,40 @@
+﻿@model Cadastro.Models.ClsUsuario
+@{
+    ViewBag.Title = "ListaUsuario";
+}
+<div class="container">
+    <div id="dialog" title="Alerta" >
+        teste
+    </div>
+    <div class="page-header">Lista de Usuários</div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Email</td>
+                    <td>Data Nascimento</td>
+                    <td>Login</td>
+                    <td>Editar</td>
+                    <td>Excluir</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var objUsuario in Model.ListaUsuario)
+                {
+                    <tr>
+                        <td>@Html.Raw(objUsuario.Nome)</td>
+                        <td>@Html.Raw(objUsuario.Email)</td>
+                        <td>@Html.Raw(objUsuario.DtNascimento.ToString("dd/MM/yyyy"))</td>
+                        <td>@Html.Raw(objUsuario.Login)</td>
+                        <td><a href="~/home/editar?idUsuario=@Html.Raw(objUsuario.IdUsuario)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td><a class="excluir" href="~/home/excluir?idUsuario=@Html.Raw(objUsuario.IdUsuario)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
