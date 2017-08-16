@@ -14,12 +14,7 @@ namespace DAL.Models
         protected MySqlDataReader Reader;
 
         protected string DadosConexao()
-        {
-            string db_Server = "50.62.209.159";
-            string db_Port = "3306";
-            string db_UID = "EstUsuario";
-            string db_PWD = "Rest123Api56!";
-            string db_Database = "BdUsuario";
+        {            
             /*
             string db_Server = "#";
             string db_Port = "#";
