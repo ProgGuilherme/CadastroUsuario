@@ -56,5 +56,19 @@ namespace Cadastro.Controllers
             TempData["Usuario"] = "Dados editados com sucesso.";
             return View(objUsuario);
         }
+        [HttpGet]
+        public ActionResult Excluir()
+        {
+            try
+            {
+                int idUsuario = Convert.ToInt32(Request.QueryString["idUsuario"]);
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

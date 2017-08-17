@@ -3,8 +3,8 @@
     ViewBag.Title = "ListaUsuario";
 }
 <div class="container">
-    <div id="dialog" title="Alerta" >
-        teste
+    <div id="mensagem" class="mensagem" title="Basic dialog">
+        <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
     </div>
     <div class="page-header">Lista de Usuários</div>
     <div class="row">
@@ -29,7 +29,7 @@
                         <td>@Html.Raw(objUsuario.DtNascimento.ToString("dd/MM/yyyy"))</td>
                         <td>@Html.Raw(objUsuario.Login)</td>
                         <td><a href="~/home/editar?idUsuario=@Html.Raw(objUsuario.IdUsuario)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                        <td><a class="excluir" href="~/home/excluir?idUsuario=@Html.Raw(objUsuario.IdUsuario)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                        <td><a class="excluir" href="#" data-id="@Html.Raw(objUsuario.IdUsuario)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 }
             </tbody>
